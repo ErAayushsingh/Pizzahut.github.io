@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css?family=sans-serif');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #FFFCF0;
+    background-image: url(images/background.png);
+    background-attachment: fixed;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    font-family: 'Permanent Marker', sans-serif;
+    text-align: center;
+    font-size: 3.4rem;
+    color: #0d89db;
+}
+
+#logo-img {
+    width: 45px;
+    transform: translateY(5px)
+}
+
+/* GRIDDING */
+
+.grid-container {
+    font-family: 'Jua', Bahnschrift, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
+}
+
+.pizza-container {
+    grid-row: span 4;
+}
+
+.bill-container {
+    grid-row: span 2;
+}
+
+.toppings-container, .crust-container {
+    grid-row: span 3;
+}
+
+/* TOPPINGS AND CRUSTS */
+
+.crust-container {
+    margin-top: 30px;
+}
+
+.toppings-container, .crust-container {
+    margin-left: 60px;
+    width: 360px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.toppings-head, .crust-head {
+    background: #0d89db;
+    padding: 10px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.toppings-genres {
+    text-align: center;
+    display: flex;
+}
+
+.toppings-genre {
+    width: 50%;
+    padding: 5px;
+    background: #eee;
+    cursor: pointer;
+}
+
+.toppings-genre:hover {
+    background: #ccc;
+}
+
+.toppings-genre.active {
+    background: #0d89db;
+    color: #fff
+}
+
+.toppings-body {
+    position: relative;
+    height: calc(100% - 73px);
+}
+
+.toppings-body-non, .toppings-body-veg {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    display: none;
+}
+
+.toppings-body>.active-genre {
+    display: block;
+}
+
+.topping {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.topping img {
+    width: 40px;
+}
+
+.topping {
+    margin-left: 5px;
+}
+
+.crust {
+    margin-left: 10px;
+    line-height: 2;
+    cursor: pointer;
+}
+
+.topping:hover, .crust:hover {
+    color: #0d89db
+}
+
+.topping.on-the-pizza::after, .crust.selected-crust::after {
+    content: ' ✔️';
+    margin-left: 5px;
+}
+
+/*  'THE' PIZZA */
+
+.pizza-container {
+    text-align: center;
+}
+
+.pizza-title {
+    font-size: 1.5rem;
+}
+
+.pizza-image {
+    position: relative;
+}
+
+.topping-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.topping-image.yes {
+    display: block;
+}
+
+/* BILL */
+
+.bill-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.bill-extras {
+    font-size: 1.4rem;
+}
+
+.cheese {
+    margin-left: 40px;
+    cursor: pointer;
+    position: relative;
+}
+
+.cheese .checkmark {
+    position: absolute;
+    top: 0;
+    left: -30px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #FFB97B;
+    transition: .5s ease-in-out;
+}
+
+.cheese .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    transition: .5s;
+}
+
+.cheese input:checked ~ .checkmark:after {
+    display: block;
+    animation: check .3s ease-in forwards;
+}
+
+@keyframes check {
+    from { transform: rotate(15deg) }
+    to { transform: rotate(45deg) }
+}
+
+.cheese .checkmark:after {
+	transition: 5s;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 3px 0;
+    transition: transform .5s ease-in-out;
+}
+
+.bill-extras input {
+    position: absolute;
+    opacity: 0;
+}
+
+select {
+    background: #0d89db;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Jua'
+}
+
+.bill {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bill-list {
+    font-size: 1.2rem;
+    list-style: none;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    width: 40%;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.bill-list>li {
+    display: flex;
+    justify-content: space-between
+}
+
+.bill-list>li#grand-total {
+    padding-top: 5px;
+    border-top: 2px solid #ccc;
+}
+
+#buy-now {
+    padding: .5rem 1rem;
+    border-radius: 3px;
+    font-size: 2rem;
+    cursor: pointer;
+    background: #0d89db;
+    color: #fff;
+    transition: all .25s ease-in;
+    box-shadow: 0 0 30px #000a;
+}
+
+#buy-now:hover {
+    box-shadow: 0 0 10px #0009;
+    transform: scale(.98)
+}
+
+/* POPUP */
+#popup {
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    right: 25%;
+    bottom: 25%;
+    padding: 2rem;
+    background: #FFFCF0;
+    font-family: 'Jua', Bahnschrift, sans-serif;
+    font-size: 1.2rem;
+    box-shadow: 0 0 40px #0009;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0);
+    transition: all .25s ease-in-out; 
+}
+
+#popup.open {
+    transform: scale(1);
+}
+
+#popup #close {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+#popup h2 {
+    align-self: center;
+    font-size: 1.9rem;
+    margin-bottom: 30px;    
+}
+
+#popup textarea {
+    all: unset;
+    background: #fff;
+    margin: 10px 0 30px 0;
+    border: 2px solid #0d89db;
+    border-bottom: 2px solid #0d89db;
+}
+
+#popup button {
+    all: unset;
+    align-self: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    background: #0d89db;
+    color: #fff;
+    transition: all .25s ease-in;
+    box-shadow: 0 0 15px #000a;
+}
+
+#popup button:hover {
+    box-shadow: 0 0 10px #0009;
+    transform: scale(.98)
+}

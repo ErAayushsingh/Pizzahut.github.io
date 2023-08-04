@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Hut Menu</title>
+    <!-- Box Icons -->
+    <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <!-- Link To CSS -->
+  <link rel="stylesheet" href="style1.css">
+  <link rel="website icon" type="png" href="logo1.png">
+  <link rel="stylesheet" href="responsive.css">
+
+</head>
+<body>
+<div class="grid-container">
+    <!-- THE PIZZA -->
+    <div class="grid-child pizza-container">
+        <div class="pizza-title">CUSTOMIZE YOUR PIZZA!</div>
+        <div class="pizza-image">
+            <img src="images/margherita.png" id="the-pizza">
+            <img src="customise/peri-peri-chicken.png" class="topping-image" id="peri-peri-chicken">
+            <img src="customise/barbeque.png" class="topping-image" id="barbeque">
+            <img src="customise/chicken-sausage.png" class="topping-image" id="sausage">
+            <img src="customise/chicken-tikka.png" class="topping-image" id="chicken-tikka">
+            <img src="customise/grilled-chicken-rasher.png" class="topping-image" id="grilled-chicken-rasher">
+            <img src="customise/capsicum.png" class="topping-image" id="capsicum">
+            <img src="customise/mushroom.png" class="topping-image" id="mushroom">
+            <img src="customise/onion.png" class="topping-image" id="onion">
+            <img src="customise/paneer.png" class="topping-image" id="paneer">
+            <img src="customise/paparika.png" class="topping-image" id="paparika">
+            <img src="customise/jalapeno.png" class="topping-image" id="jalapeno">
+            <img src="customise/greenOlives.png" class="topping-image" id="green-olives">
+            <img src="customise/goldenCorn.png" class="topping-image" id="golden-corn">
+        </div>
+        <div class="pizza-caption">A classic delight loaded with extra 100% real mozzarella cheese.</div>
+    </div>
+    <!-- THE TOPPINGS -->
+    <div class="grid-child toppings-container">
+        <div class="toppings-head">ADD TOPPINGS</div>
+        <div class="toppings-genres">
+            <div class="toppings-genre active" onclick="openGenre(event, 'veg')">VEG</div>
+            <div class="toppings-genre" onclick="openGenre(event, 'non')">NON VEG</div>
+        </div>
+        <div class="toppings-body">
+            <div class="toppings-body-veg toppings-body-child active-genre">
+                <div class="topping" title="₹13">
+                    <img src="thumbnails/Mushroom.png" alt="" srcset="">
+                    <span>MUSHROOM</span>
+                </div>
+                <div class="topping" title="₹30">
+                    <img src="thumbnails/Onion.png" alt="" srcset="">
+                    <span>ONION</span>
+                </div>
+                <div class="topping" title="₹45">
+                    <img src="thumbnails/Paneer.png" alt="" srcset="">
+                    <span>PANEER</span>
+                </div>
+                <div class="topping" title="₹23">
+                    <img src="thumbnails/Paparika.png" alt="" srcset="">
+                    <span>PAPARIKA</span>
+                </div>
+                <div class="topping" title="₹23">
+                    <img src="thumbnails/Jalapeno.png" alt="" srcset="">
+                    <span>JALAPENO</span>
+                </div>
+                <div class="topping" title="₹67">
+                    <img src="thumbnails/Olives.png" alt="" srcset="">
+                    <span>GREEN OLIVES</span>
+                </div>
+                <div class="topping" title="₹34">
+                    <img src="thumbnails/GoldenCorn.png" alt="" srcset="">
+                    <span>GOLDEN CORN</span>
+                </div>
+                <div class="topping" title="₹45">
+                    <img src="thumbnails/Capsicum.png" alt="" srcset="">
+                    <span>CAPSICUM</span>
+                </div>
+            </div>
+            <div class="toppings-body-non toppings-body-child">
+                <div class="topping" title="₹34">
+                    <img src="thumbnails/PeriPeriChicken.png" alt="" srcset="">
+                    <span>PERI PERI CHICKEN</span>
+                </div>
+                <div class="topping" title="₹56">
+                    <img src="thumbnails/Barbeque.png" alt="" srcset="">
+                    <span>BARBEQUE</span>
+                </div>
+                <div class="topping" title="₹23">
+                    <img src="thumbnails/ChickenSausage.png" alt="" srcset="">
+                    <span>SAUSAGE</span>
+                </div>
+                <div class="topping" title="₹76">
+                    <img src="thumbnails/ChickenTikka.png" alt="" srcset="">
+                    <span>CHICKEN TIKKA</span>
+                </div>
+                <div class="topping" title="₹23">
+                    <img src="thumbnails/GrilledChickenRasher.png" alt="" srcset="">
+                    <span>GRILLED CHICKEN RASHER</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- THE CRUSTS -->
+    <div class="grid-child crust-container">
+        <div class="crust-head">CHOOSE YOUR CRUST</div>
+        <div class="crust-body">
+            <div class="crust selected-crust" title="₹35">CLASSIC HAND TOSSED</div>
+            <div class="crust" title="₹45">CHEESE BURST</div>
+            <div class="crust" title="₹40">WHEAT THIN CRUST</div>
+            <div class="crust" title="₹35">FRESH PAN</div>
+            <div class="crust" title="₹45">NEW HAND TOSSED</div>
+        </div>
+    </div>
+    <!-- THE MONEY 💲💲💲 -->
+    <div class="grid-child bill-container">
+        <div class="bill-extras">
+            <span>Quantity</span>
+            <select name="quantity" id="quantity" onclick="updateBill()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label for="extra-cheese" class="cheese" title="₹45">Extra Cheese
+                <input type="checkbox" name="extra-cheese" id="extra-cheese" onclick="updateBill()">
+                <span class="checkmark" title="₹45"></span>
+            </label>
+        </div>
+        <div class="bill">
+            <ul class="bill-list">
+                <li>
+                    <span class="bill-label">Total:</span>
+                    <span class="bill-value" id="total-cost">₹35</span>
+                </li>
+                <li>
+                    <span class="bill-label">Extra Toppings:</span>
+                    <span class="bill-value" id="toppings-cost">₹0</span>
+                </li>
+                <li>
+                    <span class="bill-label">Extra Cheese:</span>
+                    <span class="bill-value" id="cheese-cost">₹0</span>
+                </li>
+                <li>
+                    <span class="bill-label">GST:</span>
+                    <span class="bill-value" id="gst-cost">₹0</span>
+                </li>
+                <li id="grand-total">
+                    <span class="bill-label">Grand Total:</span>
+                    <span class="bill-value" id="grand-cost">₹35</span>
+                </li>
+            </ul>
+            <div id="buy-now">
+                <a><span>Buy Now</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup">
+    <p id="close">×</p>
+    <h2>Buy now</h2>
+    <p>Enter Delivery Address</p>
+    <textarea cols="1" rows="8"></textarea>
+    <button id="confirm-btn">Confirm Purchase</button>
+</div>
+<script src="script1.js"></script>
+</body>
+</html>
